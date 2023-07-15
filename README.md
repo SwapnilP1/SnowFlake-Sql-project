@@ -51,6 +51,25 @@ create or replace TABLE SQL.PUBLIC.CONSUMER_COMPLAINTS (
 The project includes a set of example queries and analyses that can be performed on consumer complaints data. You can find these queries in the Queries file, along with explanations and usage examples. Feel free to modify and expand upon these queries to suit your specific analysis requirements.
 
 
+--select distinct ("PRODUCT NAME") from SQL.PUBLIC.CONSUMER_COMPLAINTS
+
+-- use case 
+--- consumer loan 
+--- student loan 
+--- payday loan 
+--- All above three into single column as load type and rest otheer_finacial_service  as  loan type 
+
+
+select *,
+case 
+when "PRODUCT NAME" in ('Consumer Loan','Student loan','Payday loan') then 'loan'
+else 'All_other_loan' 
+end as loan_type
+from SQL.PUBLIC.consumer_complaints
+
+
+
+
 
 
 
